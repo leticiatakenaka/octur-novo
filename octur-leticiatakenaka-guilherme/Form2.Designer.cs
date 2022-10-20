@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnTodos = new System.Windows.Forms.RadioButton();
             this.btnMarcados = new System.Windows.Forms.RadioButton();
             this.marcacao = new System.Windows.Forms.Label();
             this.porpais = new System.Windows.Forms.Label();
             this.origem = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.limpar = new System.Windows.Forms.RadioButton();
             this.dataGridViewDestinos = new System.Windows.Forms.DataGridView();
-            this.cbPaises = new System.Windows.Forms.ComboBox();
             this.cbOrigens = new System.Windows.Forms.ComboBox();
+            this.cbPaises = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDestinos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,9 +85,9 @@
             this.porpais.Location = new System.Drawing.Point(57, 389);
             this.porpais.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.porpais.Name = "porpais";
-            this.porpais.Size = new System.Drawing.Size(130, 20);
+            this.porpais.Size = new System.Drawing.Size(61, 20);
             this.porpais.TabIndex = 5;
-            this.porpais.Text = "Por Pais (ORIGEM)";
+            this.porpais.Text = "Por Pais";
             // 
             // origem
             // 
@@ -96,33 +95,22 @@
             this.origem.Location = new System.Drawing.Point(57, 77);
             this.origem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.origem.Name = "origem";
-            this.origem.Size = new System.Drawing.Size(193, 20);
+            this.origem.Size = new System.Drawing.Size(175, 20);
             this.origem.TabIndex = 6;
-            this.origem.Text = "Origem (SAO OS ESTADOS)";
+            this.origem.Text = "Por aeroporto de origem";
             this.origem.Click += new System.EventHandler(this.origem_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lucida Sans", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(57, 34);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(221, 27);
             this.label4.TabIndex = 7;
-            this.label4.Text = "label4";
-            // 
-            // limpar
-            // 
-            this.limpar.AutoSize = true;
-            this.limpar.Location = new System.Drawing.Point(61, 318);
-            this.limpar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.limpar.Name = "limpar";
-            this.limpar.Size = new System.Drawing.Size(83, 24);
-            this.limpar.TabIndex = 9;
-            this.limpar.TabStop = true;
-            this.limpar.Text = "Nenhum";
-            this.limpar.UseVisualStyleBackColor = true;
-            this.limpar.Click += new System.EventHandler(this.limpar_Click);
+            this.label4.Text = "Gerenciar Trajeto";
             // 
             // dataGridViewDestinos
             // 
@@ -133,73 +121,74 @@
             this.dataGridViewDestinos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDestinos.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewDestinos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(121)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(121)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDestinos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(121)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(121)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDestinos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewDestinos.ColumnHeadersHeight = 35;
             this.dataGridViewDestinos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(126)))), ((int)(((byte)(112)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(121)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewDestinos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(224)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(126)))), ((int)(((byte)(112)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(121)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDestinos.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewDestinos.EnableHeadersVisualStyles = false;
             this.dataGridViewDestinos.Location = new System.Drawing.Point(302, 114);
             this.dataGridViewDestinos.MultiSelect = false;
             this.dataGridViewDestinos.Name = "dataGridViewDestinos";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewDestinos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDestinos.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewDestinos.RowHeadersVisible = false;
             this.dataGridViewDestinos.RowHeadersWidth = 25;
             this.dataGridViewDestinos.RowTemplate.Height = 25;
             this.dataGridViewDestinos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDestinos.Size = new System.Drawing.Size(375, 347);
+            this.dataGridViewDestinos.Size = new System.Drawing.Size(566, 347);
             this.dataGridViewDestinos.TabIndex = 12;
-            // 
-            // cbPaises
-            // 
-            this.cbPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPaises.FormattingEnabled = true;
-            this.cbPaises.Location = new System.Drawing.Point(61, 412);
-            this.cbPaises.Name = "cbPaises";
-            this.cbPaises.Size = new System.Drawing.Size(152, 28);
-            this.cbPaises.TabIndex = 22;
-            this.cbPaises.SelectedIndexChanged += new System.EventHandler(this.origens_SelectedIndexChanged);
             // 
             // cbOrigens
             // 
             this.cbOrigens.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOrigens.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbOrigens.FormattingEnabled = true;
             this.cbOrigens.Location = new System.Drawing.Point(61, 100);
             this.cbOrigens.Name = "cbOrigens";
-            this.cbOrigens.Size = new System.Drawing.Size(152, 28);
+            this.cbOrigens.Size = new System.Drawing.Size(197, 28);
             this.cbOrigens.TabIndex = 23;
             this.cbOrigens.SelectedIndexChanged += new System.EventHandler(this.paises_SelectedIndexChanged);
+            // 
+            // cbPaises
+            // 
+            this.cbPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPaises.FormattingEnabled = true;
+            this.cbPaises.Location = new System.Drawing.Point(61, 412);
+            this.cbPaises.Name = "cbPaises";
+            this.cbPaises.Size = new System.Drawing.Size(197, 28);
+            this.cbPaises.TabIndex = 22;
+            this.cbPaises.SelectedIndexChanged += new System.EventHandler(this.origens_SelectedIndexChanged);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(200)))));
-            this.ClientSize = new System.Drawing.Size(689, 492);
+            this.ClientSize = new System.Drawing.Size(922, 492);
             this.Controls.Add(this.cbOrigens);
             this.Controls.Add(this.cbPaises);
             this.Controls.Add(this.dataGridViewDestinos);
-            this.Controls.Add(this.limpar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.origem);
             this.Controls.Add(this.porpais);
@@ -226,9 +215,8 @@
         private System.Windows.Forms.Label porpais;
         private System.Windows.Forms.Label origem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton limpar;
         private System.Windows.Forms.DataGridView dataGridViewDestinos;
-        private System.Windows.Forms.ComboBox cbPaises;
         private System.Windows.Forms.ComboBox cbOrigens;
+        private System.Windows.Forms.ComboBox cbPaises;
     }
 }

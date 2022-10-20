@@ -39,19 +39,22 @@ namespace octur_leticiatakenaka_guilherme
             dadosTabela.Columns.Add("Destinos");
             dadosTabela.Columns.Add("Pais");
             dadosTabela.Columns.Add("Estados");
+            dadosTabela.Columns.Add("PaisOrigem");
 
             dataGridViewDestinos.DataSource = dadosTabela;
+
             carregaVoos();
             carregaPaises();
+            carregaPaisOrigem();
+
             dataGridViewDestinos.Columns[2].Visible = false;
             dataGridViewDestinos.Columns[3].Visible = false;
+            dataGridViewDestinos.Columns[4].Visible = false;
+
+            cbPaises.Items.Add("NENHUM");
         }
 
         // metodos para carregar dados no dataGridView conectados ao banco de dados
-        private void carregaOrigens()
-        {
-
-        }
 
         private void carregaPaises()
         {
@@ -59,6 +62,22 @@ namespace octur_leticiatakenaka_guilherme
             foreach (var pais in paises.paises)
             {
                 cbPaises.Items.Add(pais);
+            }
+        }
+
+        private void carregaPaisOrigem()
+        {
+            FirebaseResponse response = client.Get("ListaVoos/");
+            Dictionary<string, Voo> getVoo = response.ResultAs<Dictionary<string, Voo>>();
+
+            if (getVoo != null)
+            {
+                foreach (var get in getVoo)
+                {
+                    cbOrigens.Items.Add(
+                        get.Value.Pais + " / " + get.Value.Origem
+                        );
+                }
             }
         }
 
@@ -73,8 +92,9 @@ namespace octur_leticiatakenaka_guilherme
                     dadosTabela.Rows.Add(
                         get.Value.isSelected,
                         get.Value.Destino + " " + "/" + " " + get.Value.Origem,
+                        get.Value.Pais,
                         get.Value.Origem,
-                        get.Value.Destino
+                        get.Value.Destino + " " + "/" + " " + get.Value.Origem
                         );
                 }
             }
@@ -128,9 +148,7 @@ namespace octur_leticiatakenaka_guilherme
 
         private void btnTodos_CheckedChanged(object sender, EventArgs e)
         {
-            filtroDuplo("Pais", cbPaises.Text, "Estados", cbOrigens.Text);
-            //filtroTodos("Destinos", cbPaises.Text);
-            //filtroTodos("Destinos", cbOrigens.Text);
+            limparFiltro();
         }
 
         private void btnMarcados_CheckedChanged(object sender, EventArgs e)
@@ -141,68 +159,31 @@ namespace octur_leticiatakenaka_guilherme
             }
             else if (cbPaises.SelectedIndex >= 0 && cbOrigens.SelectedIndex >= 0)
             {
-                filtroTriplo("Pais", cbPaises.Text, "Estados", cbOrigens.Text, " ", true);
+                filtroTriplo(coluna1: "Pais", cbPaises.Text, "Estados", cbOrigens.Text, " ", true);
             }
         }
 
-        private void limpar_Click(object sender, EventArgs e)
-        {
-            limparFiltro();
-        }
+
 
         private void origens_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Estados estados = new Estados();
+            cbOrigens.SelectedIndex = -1;
+            dadosTabela.DefaultView.RowFilter = $"[PaisOrigem] LIKE '{cbPaises.Text}'";
+            if (cbPaises.Text == "NENHUM")
+            {
 
-            if (cbPaises.SelectedIndex == 0)
-            {
-                cbOrigens.Items.Clear();
-                foreach (var origem in estados.brasil)
-                {
-                    cbOrigens.Items.Add(origem);
-                }
             }
-            else if (cbPaises.SelectedIndex == 1)
-            {
-                cbOrigens.Items.Clear();
-                foreach (var origem in estados.portugal)
-                {
-                    cbOrigens.Items.Add(origem);
-                }
-            }
-            filtroTodos("Pais", cbPaises.Text);
-            //filtroTexto("Destinos", cbPaises.Text, " ");
         }
 
         private void paises_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Estados origens = new Estados();
-
-            if (cbPaises.SelectedIndex == 0)
-            {
-               // cbOrigens.Items.Clear();
-                foreach (var origem in origens.brasil)
-                {
-                    cbOrigens.Items.Add(origem);
-                }
-            }
-            else if (cbPaises.SelectedIndex == 1)
-            {
-               // cbOrigens.Items.Clear();
-                foreach (var origem in origens.portugal)
-                {
-                    cbOrigens.Items.Add(origem);
-                }
-            }
-
-            filtroDuplo("Pais", cbPaises.Text, "Estados", cbOrigens.Text);
-            //filtroTodos("Destinos", cbPaises.Text);
-            //filtroTodos("Destinos", cbOrigens.Text);
+            cbPaises.SelectedIndex = -1;
+            dadosTabela.DefaultView.RowFilter = $"[PaisOrigem] LIKE '{cbOrigens.Text}'";
         }
 
         private void origem_Click(object sender, EventArgs e)
         {
-
+            dadosTabela.DefaultView.RowFilter = null;
         }
     }
 }
